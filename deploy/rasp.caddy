@@ -1,0 +1,12 @@
+# Расписание группы 10503126 — отдельный сервис, сайт Mila не трогает
+rasp.130-49-141-77.sslip.io {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		X-Content-Type-Options "nosniff"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		-Server
+	}
+	reverse_proxy 127.0.0.1:8793
+}

@@ -1,0 +1,22 @@
+[Unit]
+Description=Raspisanie 10503126 (server.py)
+After=network.target
+
+[Service]
+User=rasp
+Group=rasp
+WorkingDirectory=/opt/rasp
+Environment=HOST=127.0.0.1
+Environment=RASP_STATE_DIR=/var/lib/rasp
+ExecStart=/usr/bin/python3 -u /opt/rasp/server.py 8793
+Restart=always
+RestartSec=3
+MemoryMax=120M
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/rasp
+
+[Install]
+WantedBy=multi-user.target
